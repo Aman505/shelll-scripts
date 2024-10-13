@@ -1,0 +1,18 @@
+#!/bin/bash
+# This is sholay by Aman
+<<comment 
+
+Multi line comment
+
+comment
+
+echo "Gabbar: Kitne aadmi the"
+echo "kalia: 2 sarkar"
+echo "" #for empty line
+echo "Kitna time hua ?"
+echo""
+date
+
+echo "class kabse chal rhi"
+
+uptime
