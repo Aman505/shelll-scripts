@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "$(ls -lrth a*.txt)" #this will search file starting with "a" and are of type ".txt"
+echo "$(ls -lrth *.sh)" #This will search for files that are of ".txt" type
+echo "$(ls -lrth b-1?.txt)" #"?" will match a single character
