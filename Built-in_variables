@@ -1,0 +1,4 @@
+#!/bin/bash
+var1=$RANDOM #This will generate a random number and store it's value in var1
+echo $var1
+echo "My name is $1 and I want to talk to $2" # here $1 and $2 inputs can be provided while you run the script. Eg: ./random.sh Rohan Ankit, now $1 will be replaced with Rohan and $2 with Ankit
