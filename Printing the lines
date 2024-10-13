@@ -11,8 +11,8 @@ echo "kalia: 2 sarkar"
 echo "" #for empty line
 echo "Kitna time hua ?"
 echo""
-date
+date #toshow current date and time
 
 echo "class kabse chal rhi"
 
-uptime
+uptime #to show uptime of the system
