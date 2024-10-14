@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ls -lrth
+while true
+do
+	read -p "Enter the string " user_string # reads the string
+	if [[ $user_string == ""  ]]; then #Check if the string is empty or not
+		echo "Exiting.."
+		break
+	fi
+	String_len=${#user_string} #count the string characters
+	echo "Total:- $String_len"
+done
