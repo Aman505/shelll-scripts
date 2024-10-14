@@ -1,0 +1,11 @@
+#!/bin/bash
+while true
+do
+        ls -lrth # This command will provide the list of directories
+        read -p "do you want to run it again? type yes or no  " user_input #User enter if they want to see the O/P again or not
+
+        if [[ "$user_input" == "no" ]]; then
+                echo "Exiting.."
+                break
+        fi
+done
