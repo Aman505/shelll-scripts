@@ -1,0 +1,58 @@
+#!/bin/bash
+function display_usage {
+    echo "Usage: $0 [OPTIONS]"
+    echo "Options:"
+    echo "  -c, --create     Create a new user account."
+    echo "  -d, --delete     Delete an existing user account."
+    echo "  -r, --reset      Reset password for an existing user account."
+    echo "  -h, --help       Display this help and exit."
+}
+function create_user {
+  read -p "Enter the username:" username
+  if id "$username" &> /dev/null; then
+	echo "Error: "$username" already exists"
+  else
+	read -p "Enter the passwd for $username:" password
+        sudo useradd -m -p "$password" "$username"
+	echo "User account $username created successfully"
+  fi
+}
+
+function delete_user {
+	read -p "Enter the user you want to delete:" username
+	if id $username &> /dev/null; then
+		sudo userdel -r "$username"
+		echo "user $username deleted successfully"
+	else
+		echo "user does not exist"
+	fi
+}
+function reset_passwd {
+read -p "Enter the username you want to reset password for:" username
+if id $username &> /dev/null; then
+	read -p "Enter the password:" password
+	echo "$username:$password"| chpasswd
+	echo "Password for the $username updated successfully"
+else
+	echo "User does not exist"
+fi
+}
+while [ $# -gt 0 ]; do
+	case "$1" in
+		-c)
+			create_user
+			;;
+		-d)
+			delete_user
+			;;
+		-r)
+			reset_passwd
+			;;
+		*)
+			echo "Invalid option. Exiting..."
+			exit 1
+			;;
+
+	esac
+	shift
+done
